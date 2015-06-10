@@ -1,15 +1,21 @@
 {
   "scheming_version": 1,
-  "dataset_type": "fluent-test",
+  "dataset_type": "dataset-multi",
   "about_url": "http://github.com/open-data/ckanext-fluent",
-  "form_languages": ["en", "fr"],
+  "form_languages": ["en", "de", "fr", "it"],
   "dataset_fields": [
     {
       "field_name": "title",
       "label": {
           "en": "Title",
-          "fr": "Titre"},
-      "preset": "title",
+          "de": "Titel",
+          "fr": "Titre",
+          "it": "Titolo"
+      },
+      "form_attrs": {
+        "data-module": "slug-preview-target"
+      },
+      "preset": "fluent_text_title",
       "form_placeholder": "eg. Yellow Submarine"
     },
     {
@@ -19,11 +25,12 @@
       "form_placeholder": "eg. yellow-submarine"
     },
     {
-      "field_name": "books",
+      "field_name": "notes",
       "label": {
-          "en": "Books",
-          "fr": "Livres"},
-      "preset": "fluent_text",
+        "en": "Description",
+        "de": "Beschreibung"
+      },
+      "preset": "fluent_markdown",
       "required": true
     },
     {
