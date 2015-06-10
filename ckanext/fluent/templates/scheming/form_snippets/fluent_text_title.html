@@ -13,8 +13,7 @@
     id='field-' + field.field_name + '-' + lang,
     label=h.scheming_language_text(field.label) + ' (' + lang.upper() + ')',
     placeholder=h.scheming_language_text(field.form_placeholder, lang),
-    value=data.get(field.field_name, {})[lang]
-        or data[field.field_name + '-' + lang],
+    value=data.get(field.field_name, {})[lang] or data[field.field_name + '-' + lang],
     error=errors[field.field_name + '-' + lang],
     classes=form_classes,
     attrs=form_attrs,
