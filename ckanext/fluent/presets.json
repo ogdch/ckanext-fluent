@@ -14,6 +14,16 @@
       }
     },
     {
+      "preset_name": "fluent_text_title",
+      "values": {
+        "form_snippet": "fluent_text_title.html",
+        "display_snippet": "fluent_text.html",
+        "error_snippet": "fluent_text.html",
+        "validators": "fluent_text",
+        "output_validators": "fluent_text_output"
+      }
+    },
+    {
       "preset_name": "fluent_tags",
       "values": {
         "form_snippet": "fluent_tags.html",

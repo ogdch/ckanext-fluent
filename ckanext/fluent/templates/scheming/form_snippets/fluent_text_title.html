@@ -1,0 +1,23 @@
+{% import 'macros/form.html' as form %}
+
+{%- for lang in h.fluent_form_languages(schema, field) -%}
+  {%- set form_attrs = {} -%}
+  {%- set form_classes = ['control-medium'] -%}
+  {%- if 'en' in lang %}
+    {%- set form_attrs = { 'data-module': 'slug-preview-target' } -%}
+    {%- set form_classes = ['control-full', 'control-large'] -%}
+  {%- endif -%}
+
+  {{ form.input(
+    field.field_name + '-' + lang,
+    id='field-' + field.field_name + '-' + lang,
+    label=h.scheming_language_text(field.label) + ' (' + lang.upper() + ')',
+    placeholder=h.scheming_language_text(field.form_placeholder, lang),
+    value=data.get(field.field_name, {})[lang]
+        or data[field.field_name + '-' + lang],
+    error=errors[field.field_name + '-' + lang],
+    classes=form_classes,
+    attrs=form_attrs,
+    is_required=h.scheming_field_required(field)
+    ) }}
+{%- endfor -%}
